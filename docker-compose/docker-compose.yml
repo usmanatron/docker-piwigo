@@ -5,6 +5,8 @@ services:
     container_name: piwigo-db
     image: mariadb:10.4.6-bionic
     restart: always
+    volumes:
+      - ~/dbdata:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root_password
       MYSQL_DATABASE: piwigo
@@ -13,10 +15,12 @@ services:
 
   app:
     container_name: piwigo-app
-    image: usmanatron/piwigo:v0.0.7
+    image: usmanatron/piwigo:v0.0.8
     restart: always
     ports:
       - 800:80
+    volumes:
+      - ~/galleries:/var/www/html/piwigo/galleries
     environment:
       PIWIGO_DB_HOST: piwigo-db
       PIWIGO_DB_NAME: piwigo

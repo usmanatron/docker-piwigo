@@ -42,4 +42,6 @@ RUN a2enmod rewrite && \
     chmod -R 755 /var/www/html/piwigo/ && \
     chmod +x /root/*.sh
 
+VOLUME [ "/var/www/html/piwigo/galleries" ]
+
 CMD [ "/root/entrypoint.sh" ]
