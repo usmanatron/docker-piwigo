@@ -13,9 +13,7 @@ services:
 
   app:
     container_name: piwigo-app
-    build:
-      context: piwigo-app\.
-    image: piwigo:0.0.5.1
+    image: usmanatron/piwigo:v0.0.6
     restart: always
     ports:
       - 800:80
