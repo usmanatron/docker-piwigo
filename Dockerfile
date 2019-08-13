@@ -39,6 +39,7 @@ RUN a2enmod rewrite && \
     a2dissite 000-default.conf && \
     a2ensite piwigo.conf && \
     chown -R www-data:www-data /var/www/html/piwigo/ && \
-    chmod -R 755 /var/www/html/piwigo/
+    chmod -R 755 /var/www/html/piwigo/ && \
+    chmod +x /root/*.sh
 
-ENTRYPOINT [ "/root/entrypoint.sh" ]
+CMD [ "/root/entrypoint.sh" ]
